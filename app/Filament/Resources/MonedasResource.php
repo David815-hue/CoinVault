@@ -34,7 +34,7 @@ class MonedasResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) Monedas::count(); // Cuenta los registros y retorna el valor como string
+        return (string) Monedas::where('user_id', auth()->id())->count(); 
     }
 
     public static function form(Form $form): Form
@@ -46,12 +46,13 @@ class MonedasResource extends Resource
                     ->label('Nombre'),
 
                 Forms\Components\Textarea::make('descripcion')
-                    ->label('Descripción'),
+                    ->label('Denominacion'),
 
                 FileUpload::make('foto_frontal')
                     ->label('Foto Frontal')
                     ->image() // Esto habilita la previsualización de la imagen
                     ->imageEditor()
+                    ->directory('storage/uploads/monedas')
                     ->downloadable()
                     ->openable()
                     ->circleCropper()
@@ -61,6 +62,7 @@ class MonedasResource extends Resource
                     ->label('Foto Trasera')
                     ->image()
                     ->openable()
+                    ->directory('storage/uploads/monedas')
                     ->imageEditor()
                     ->circleCropper()
                     ->downloadable()
@@ -182,9 +184,11 @@ class MonedasResource extends Resource
         ]);
     }
 
+    
     public static function table(Table $table): Table
     {
         return $table
+            ->query(Monedas::where('user_id', auth()->id()))
             ->columns([
                 TextColumn::make('nombre')
                     ->label('Nombre')

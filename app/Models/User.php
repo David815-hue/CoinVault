@@ -6,6 +6,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class User extends Authenticatable
 {
@@ -44,5 +46,16 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function monedas(): HasMany
+    {
+        return $this->hasMany(Monedas::class, 'user_id', 'id'); 
+    }
+
+    // Relación uno a muchos con Billetes
+    public function billetes(): HasMany
+    {
+        return $this->hasMany(Billetes::class, 'user_id', 'id');
     }
 }

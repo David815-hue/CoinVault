@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -22,6 +24,7 @@ return new class extends Migration
             $table->string('estado')->nullable(); // Condición física de la moneda
             $table->decimal('valor_comprado', 10, 2)->nullable(); // Valor de compra
             $table->decimal('valor_venta_sugerido', 10, 2)->nullable(); // Valor de venta sugerido
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relación con la tabla users
             $table->timestamps();
         });
     }
@@ -33,4 +36,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('billetes');
     }
+
+    
 };

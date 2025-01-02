@@ -19,8 +19,8 @@ class BilletesPaisChart extends ChartWidget
 
     protected function getData(): array
     {
-        // Obtener los datos agrupados por país
-        $data = Billetes::query()
+        // Obtener los datos agrupados por país solo para el usuario autenticado
+        $data = Billetes::where('user_id', auth()->id()) // Filtra solo los billetes del usuario autenticado
             ->selectRaw('pais, COUNT(*) as total')
             ->groupBy('pais')
             ->orderByDesc('total')
@@ -37,7 +37,6 @@ class BilletesPaisChart extends ChartWidget
             ],
         ];
     }
-
     /**
      * Generar una paleta de colores dinámica para los países.
      */

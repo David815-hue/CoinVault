@@ -25,6 +25,9 @@ use Filament\Infolists\Components\Section;
 use Pelmered\FilamentMoneyField\Infolists\Components\MoneyEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Tables\Filters\SelectFilter;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
+use pxlrbt\FilamentExcel\Columns\Column;
 
 
 class BilletesResource extends Resource
@@ -35,7 +38,7 @@ class BilletesResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) Billetes::count(); // Cuenta los registros y retorna el valor como string
+        return (string) Billetes::where('user_id', auth()->id())->count(); 
     }
 
     public static function form(Form $form): Form
@@ -60,7 +63,7 @@ class BilletesResource extends Resource
                         '16:9',
                     ])
                     ->downloadable()
-                    ->directory('storage/billetes')
+                    ->directory('storage/uploads/billetes')   //storage/billetes
                     ->openable()
                     ->required(),
 
@@ -68,7 +71,7 @@ class BilletesResource extends Resource
                     ->label('Reverso')
                     ->image()
                     ->openable()
-                    ->directory('storage/billetes')
+                    ->directory('storage/uploads/billetes')   //storage/billetes
                     ->imageEditorAspectRatios([
                         null,
                         '16:9',
@@ -171,9 +174,11 @@ class BilletesResource extends Resource
         ]);
     }
 
+    
     public static function table(Table $table): Table
     {
         return $table
+            ->query(Billetes::where('user_id', auth()->id()))
             ->columns([
                 TextColumn::make('nombre')
                     ->label('Nombre')
@@ -397,6 +402,18 @@ class BilletesResource extends Resource
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
+            ])
+            ->headerActions([
+                ExportAction::make()
+                    ->exports([
+                        ExcelExport::make()
+                            ->fromTable() // Obtiene todos los datos de la tabla
+                            ->except([   // Excluye las columnas que contienen fotos
+                                'foto_frontal', 
+                                'foto_trasera'
+                            ])
+                    ])
+
             ])
             ->bulkActions([
                 

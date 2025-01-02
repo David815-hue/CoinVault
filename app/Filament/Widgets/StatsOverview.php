@@ -11,15 +11,18 @@ class StatsOverview extends BaseWidget
 {
     protected function getStats(): array
     {
+
+        $TotalBilletes = Billetes::where('user_id', auth()->id())->count(); 
+        $TotalMonedas = Monedas::where('user_id', auth()->id())->count(); 
+
         return [
-            Stat::make('Billetes', value: Billetes::count())
+            Stat::make('Billetes', value: $TotalBilletes)
                 ->description('Billetes Registrados')
                 ->icon('heroicon-o-currency-dollar')
                 ->color('info'),
-            Stat::make('Monedas', value: Monedas::count())
+            Stat::make('Monedas', value: $TotalMonedas)
                 ->description('Monedas Registradas')
                 ->icon('heroicon-o-banknotes')
-
                 ->color('info'),
         ];
     }

@@ -19,23 +19,23 @@ class MonedasPaisChart extends ChartWidget
 
     protected function getData(): array
     {
-        // Obtener los datos agrupados por país
-        $data = Monedas::query()
-            ->selectRaw('pais, COUNT(*) as total')
-            ->groupBy('pais')
-            ->orderByDesc('total')
-            ->get();
+    // Obtener los datos agrupados por país solo para el usuario autenticado
+    $data = Monedas::where('user_id', auth()->id()) // Filtra solo las monedas del usuario autenticado
+        ->selectRaw('pais, COUNT(*) as total')
+        ->groupBy('pais')
+        ->orderByDesc('total')
+        ->get();
 
-        return [
-            'labels' => $data->pluck('pais')->toArray(), // Etiquetas con los nombres de los países
-            'datasets' => [
-                [
-                    'label' => 'Cantidad de Monedas',
-                    'data' => $data->pluck('total')->toArray(), // Cantidad de billetes por país
-                    'backgroundColor' => $this->getColorPalette($data->count()), // Paleta de colores para el gráfico
-                ],
+    return [
+        'labels' => $data->pluck('pais')->toArray(), // Etiquetas con los nombres de los países
+        'datasets' => [
+            [
+                'label' => 'Cantidad de Monedas',
+                'data' => $data->pluck('total')->toArray(), // Cantidad de monedas por país
+                'backgroundColor' => $this->getColorPalette($data->count()), // Paleta de colores para el gráfico
             ],
-        ];
+        ],
+    ];
     }
 
     /**
