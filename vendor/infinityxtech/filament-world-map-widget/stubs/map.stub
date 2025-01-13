@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ namespace }};
+
+use InfinityXTech\FilamentWorldMapWidget\Widgets\WorldMapWidget;
+
+class {{ class }} extends WorldMapWidget
+{
+    public function stats () {
+        return [
+            'US' => 35000,
+            'RS' => 15000
+        ];
+    }
+}

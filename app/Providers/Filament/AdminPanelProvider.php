@@ -59,9 +59,11 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
-                \Hasnayeen\Themes\ThemesPlugin::make(),
+                 \Hasnayeen\Themes\ThemesPlugin::make(),
                 FilamentBackgroundsPlugin::make()
                 ->showAttribution(false),
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+
             ]);
     }
 }
