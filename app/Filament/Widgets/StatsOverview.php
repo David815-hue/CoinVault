@@ -18,13 +18,15 @@ class StatsOverview extends BaseWidget
         return [
             Stat::make('Billetes', value: $TotalBilletes)
                 ->description('Billetes Registrados')
-                ->icon('heroicon-o-currency-dollar')
+                ->icon('heroicon-o-banknotes')
                 ->color('info'),
             Stat::make('Monedas', value: $TotalMonedas)
                 ->description('Monedas Registradas')
-                ->icon('heroicon-o-banknotes')
+                ->icon('heroicon-o-currency-dollar')
                 ->color('info'),
         ];
+
+        
     }
 
     protected function getColumns(): int
