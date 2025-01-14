@@ -18,6 +18,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
+use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
+
 
 
 class AdminPanelProvider extends PanelProvider
@@ -63,7 +65,7 @@ class AdminPanelProvider extends PanelProvider
                 FilamentBackgroundsPlugin::make()
                 ->showAttribution(false),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
-
+                FilamentSpatieLaravelBackupPlugin::make(),
             ]);
     }
 }
