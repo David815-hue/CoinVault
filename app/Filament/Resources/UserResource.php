@@ -15,8 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
-
-
+use Filament\Tables\Columns\ToggleColumn;
 
 class UserResource extends Resource
 {
@@ -53,6 +52,15 @@ class UserResource extends Resource
                     ->required()
                     ->searchable()
                     ->disabled(!auth()->user()->hasRole('super_admin')),
+
+                Forms\Components\Toggle::make('is_active')
+                    ->label('Activo')
+                    ->default(true),
+    
+                // Nuevo campo para la fecha de acceso
+                Forms\Components\DatePicker::make('access_until')
+                    ->label('Acceso hasta')
+                    ->nullable(),
             ]);
     }
 
@@ -69,6 +77,11 @@ class UserResource extends Resource
                     ->searchable(),
                 TextColumn::make('roles.name')
                     ->label('Roles'),
+                ToggleColumn::make('is_active')
+                    ->label("Activo"),
+                TextColumn::make('access_until')
+                ->label('Acceso hasta')
+                ->date(),
             ])
             ->filters([
                 //

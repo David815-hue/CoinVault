@@ -56,6 +56,7 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
                \Hasnayeen\Themes\Http\Middleware\SetTheme::class,
+               \App\Http\Middleware\CheckIfUserIsActive::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
@@ -66,6 +67,7 @@ class AdminPanelProvider extends PanelProvider
                 ->showAttribution(false),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
                 FilamentSpatieLaravelBackupPlugin::make(),
+                
             ]);
     }
 }

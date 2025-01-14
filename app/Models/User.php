@@ -8,11 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Permission\Traits\HasRoles;
+use Carbon\Carbon;
+
+
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles;  
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +26,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_active', // Nuevo campo para el estado de activación
+        'access_until',
     ];
 
     /**
@@ -45,6 +50,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'access_until' => 'date',
         ];
     }
 
@@ -58,4 +64,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Billetes::class, 'user_id', 'id');
     }
+
+    
 }
