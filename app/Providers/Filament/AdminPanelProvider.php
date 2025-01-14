@@ -31,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin') //admin
             ->path('admin') //admin
             ->sidebarCollapsibleOnDesktop()
+            ->brandName("ANH")
             ->login()
             ->registration()
             ->colors([
