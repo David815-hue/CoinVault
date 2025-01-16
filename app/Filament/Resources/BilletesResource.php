@@ -63,6 +63,7 @@ class BilletesResource extends Resource
                         '16:9',
                     ])
                     ->downloadable()
+                    ->optimize('webp') //Optimizar a webpb
                     ->directory('storage/uploads/billetes')   //storage/billetes
                     ->openable()
                     ->required(),
@@ -71,6 +72,7 @@ class BilletesResource extends Resource
                     ->label('Reverso')
                     ->image()
                     ->openable()
+                    ->optimize('webp') //Optimizar a webp
                     ->directory('storage/uploads/billetes')   //storage/billetes
                     ->imageEditorAspectRatios([
                         null,

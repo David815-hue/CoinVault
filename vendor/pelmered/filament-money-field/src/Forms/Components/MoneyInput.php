@@ -2,12 +2,12 @@
 
 namespace Pelmered\FilamentMoneyField\Forms\Components;
 
+use Closure;
 use Filament\Forms\Components\TextInput;
 use Filament\Support\RawJs;
-use Illuminate\Contracts\Support\Htmlable;
+use Pelmered\FilamentMoneyField\Concerns\HasMoneyAttributes;
 use Pelmered\FilamentMoneyField\Forms\Rules\MaxValueRule;
 use Pelmered\FilamentMoneyField\Forms\Rules\MinValueRule;
-use Pelmered\FilamentMoneyField\HasMoneyAttributes;
 use Pelmered\FilamentMoneyField\MoneyFormatter;
 
 class MoneyInput extends TextInput
@@ -16,13 +16,23 @@ class MoneyInput extends TextInput
 
     protected ?string $symbolPlacement = null;
 
+    /**
+     * @var scalar | Closure | null
+     */
+    protected $maxValue = null;
+
+    /**
+     * @var scalar | Closure | null
+     */
+    protected $minValue = null;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->prepare();
 
-        $this->formatStateUsing(function (MoneyInput $component, $state): ?string {
+        $this->formatStateUsing(function (MoneyInput $component, null|int|string $state): ?string {
 
             $this->prepare();
 
@@ -39,7 +49,7 @@ class MoneyInput extends TextInput
             return MoneyFormatter::formatAsDecimal((int) $state, $currency, $locale, $this->getDecimals());
         });
 
-        $this->dehydrateStateUsing(function (MoneyInput $component, $state): ?string {
+        $this->dehydrateStateUsing(function (MoneyInput $component, null|int|string $state): ?string {
             $currency = $component->getCurrency();
             $state    = MoneyFormatter::parseDecimal($state, $currency, $component->getLocale(), $this->getDecimals());
 
@@ -100,29 +110,29 @@ class MoneyInput extends TextInput
 
     public function minValue(mixed $value): static
     {
-        $this->rule(new MinValueRule((int) $this->evaluate($value), $this));
+        $this->minValue = $value;
+
+        $this->rule(
+            static function (MoneyInput $component) {
+                return new MinValueRule($component->getMinValue(), $component);
+            },
+            static fn (MoneyInput $component): bool => filled($component->getMinValue())
+        );
 
         return $this;
     }
 
     public function maxValue(mixed $value): static
     {
-        $this->rule(new MaxValueRule((int) $this->evaluate($value), $this));
+        $this->maxValue = $value;
+
+        $this->rule(
+            static function (MoneyInput $component) {
+                return new MaxValueRule($component->getMaxValue(), $component);
+            },
+            static fn (MoneyInput $component): bool => filled($component->getMaxValue())
+        );
 
         return $this;
-    }
-
-    public function getLabel(): string
-    {
-        if ($this->label instanceof Htmlable) {
-            return $this->label->toHtml();
-        }
-
-        return $this->evaluate($this->label)
-               ?? (string) str($this->getName())
-                   ->afterLast('.')
-                   ->kebab()
-                   ->replace(['-', '_'], ' ')
-                   ->title();
     }
 }

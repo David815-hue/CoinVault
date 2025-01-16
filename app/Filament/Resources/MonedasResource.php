@@ -53,6 +53,7 @@ class MonedasResource extends Resource
                     ->image() // Esto habilita la previsualización de la imagen
                     ->imageEditor()
                     ->directory('storage/uploads/monedas')
+                    ->optimize('webp')
                     ->downloadable()
                     ->openable()
                     ->circleCropper()
@@ -64,6 +65,7 @@ class MonedasResource extends Resource
                     ->openable()
                     ->directory('storage/uploads/monedas')
                     ->imageEditor()
+                    ->optimize('webp')
                     ->circleCropper()
                     ->downloadable()
                     ->required(),

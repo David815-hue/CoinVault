@@ -16,7 +16,11 @@
     if (! $alignment instanceof Alignment) {
         $alignment = filled($alignment) ? (Alignment::tryFrom($alignment) ?? $alignment) : null;
     }
+
+    
 @endphp
+
+
 
 <x-dynamic-component
     :component="$getFieldWrapperView()"
@@ -71,6 +75,7 @@
                     maxFiles: @js($getMaxFiles()),
                     maxSize: @js(($size = $getMaxSize()) ? "{$size}KB" : null),
                     minSize: @js(($size = $getMinSize()) ? "{$size}KB" : null),
+                
                     removeUploadedFileUsing: async (fileKey) => {
                         return await $wire.removeFormUploadedFile(@js($statePath), fileKey)
                     },
