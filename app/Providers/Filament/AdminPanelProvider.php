@@ -19,7 +19,9 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
 use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
-use App\Filament\Widgets\WorldCurrencyMapWidget;
+use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
+use Swis\Filament\Backgrounds\ImageProviders\MyImages;
+use Awcodes\LightSwitch\LightSwitchPlugin;
 
 
 class AdminPanelProvider extends PanelProvider
@@ -33,7 +35,6 @@ class AdminPanelProvider extends PanelProvider
             ->sidebarCollapsibleOnDesktop()
             ->brandName("ANH")
             ->login()
-            ->registration()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -45,7 +46,6 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                WorldCurrencyMapWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -64,12 +64,25 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
+                LightSwitchPlugin::make(),
                  \Hasnayeen\Themes\ThemesPlugin::make(),
-                FilamentBackgroundsPlugin::make()
-                ->showAttribution(false),
+                 FilamentBackgroundsPlugin::make()
+                ->imageProvider(
+                    MyImages::make()
+                        ->directory('images/backgrounds')
+                ),
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
                 FilamentSpatieLaravelBackupPlugin::make(),
+                FilamentEditProfilePlugin::make()
+                    ->slug('my-profile')
+                    ->setTitle('Editar Perfil')
+                    ->setNavigationLabel('Perfil')
+                    ->setNavigationGroup('Editar Perfil')
+                    ->setIcon('heroicon-o-user')
+                    ->shouldShowDeleteAccountForm(false)
+                    ->shouldShowBrowserSessionsForm(false)
                 
+
             ]);
     }
 }

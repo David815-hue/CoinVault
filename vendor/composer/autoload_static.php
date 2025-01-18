@@ -186,6 +186,10 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         'J' => 
         array (
             'Joshembling\\ImageOptimizer\\' => 27,
+            'Joaopaulolndev\\FilamentEditProfile\\Database\\Factories\\' => 54,
+            'Joaopaulolndev\\FilamentEditProfile\\' => 35,
+            'Jenssegers\\Agent\\' => 17,
+            'Jaybizzle\\CrawlerDetect\\' => 24,
         ),
         'I' => 
         array (
@@ -255,6 +259,7 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         ),
         'A' => 
         array (
+            'Awcodes\\LightSwitch\\' => 20,
             'App\\' => 4,
             'AnourValar\\EloquentSerialize\\' => 29,
         ),
@@ -619,6 +624,22 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         array (
             0 => __DIR__ . '/..' . '/joshembling/image-optimizer/src',
         ),
+        'Joaopaulolndev\\FilamentEditProfile\\Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/database/factories',
+        ),
+        'Joaopaulolndev\\FilamentEditProfile\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src',
+        ),
+        'Jenssegers\\Agent\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jenssegers/agent/src',
+        ),
+        'Jaybizzle\\CrawlerDetect\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src',
+        ),
         'Intervention\\Image\\' => 
         array (
             0 => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image',
@@ -791,6 +812,10 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         array (
             0 => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src',
         ),
+        'Awcodes\\LightSwitch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/awcodes/light-switch/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -808,6 +833,13 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
             'HTMLPurifier' => 
             array (
                 0 => __DIR__ . '/..' . '/ezyang/htmlpurifier/library',
+            ),
+        ),
+        'D' => 
+        array (
+            'Detection' => 
+            array (
+                0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
             ),
         ),
     );
@@ -844,6 +876,9 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\Filament\\AdminPanelProvider' => __DIR__ . '/../..' . '/app/Providers/Filament/AdminPanelProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Awcodes\\LightSwitch\\Enums\\Alignment' => __DIR__ . '/..' . '/awcodes/light-switch/src/Enums/Alignment.php',
+        'Awcodes\\LightSwitch\\LightSwitchPlugin' => __DIR__ . '/..' . '/awcodes/light-switch/src/LightSwitchPlugin.php',
+        'Awcodes\\LightSwitch\\LightSwitchServiceProvider' => __DIR__ . '/..' . '/awcodes/light-switch/src/LightSwitchServiceProvider.php',
         'BezhanSalleh\\FilamentShield\\Commands\\Concerns\\CanBeProhibitable' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/Commands/Concerns/CanBeProhibitable.php',
         'BezhanSalleh\\FilamentShield\\Commands\\Concerns\\CanGeneratePolicy' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/Commands/Concerns/CanGeneratePolicy.php',
         'BezhanSalleh\\FilamentShield\\Commands\\Concerns\\CanGenerateRelationshipsForTenancy' => __DIR__ . '/..' . '/bezhansalleh/filament-shield/src/Commands/Concerns/CanGenerateRelationshipsForTenancy.php',
@@ -1064,6 +1099,7 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced/Detection/MobileDetect.php',
         'Dflydev\\DotAccessData\\Data' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Data.php',
         'Dflydev\\DotAccessData\\DataInterface' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/DataInterface.php',
         'Dflydev\\DotAccessData\\Exception\\DataException' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Exception/DataException.php',
@@ -4847,6 +4883,30 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         'Intervention\\Image\\Point' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Point.php',
         'Intervention\\Image\\Response' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Response.php',
         'Intervention\\Image\\Size' => __DIR__ . '/..' . '/intervention/image/src/Intervention/Image/Size.php',
+        'Jaybizzle\\CrawlerDetect\\CrawlerDetect' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/CrawlerDetect.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\AbstractProvider' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/AbstractProvider.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Crawlers' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Crawlers.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Exclusions' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Exclusions.php',
+        'Jaybizzle\\CrawlerDetect\\Fixtures\\Headers' => __DIR__ . '/..' . '/jaybizzle/crawler-detect/src/Fixtures/Headers.php',
+        'Jenssegers\\Agent\\Agent' => __DIR__ . '/..' . '/jenssegers/agent/src/Agent.php',
+        'Jenssegers\\Agent\\AgentServiceProvider' => __DIR__ . '/..' . '/jenssegers/agent/src/AgentServiceProvider.php',
+        'Jenssegers\\Agent\\Facades\\Agent' => __DIR__ . '/..' . '/jenssegers/agent/src/Facades/Agent.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Commands\\FilamentEditProfileCommand' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Commands/FilamentEditProfileCommand.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Concerns\\HasSort' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Concerns/HasSort.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Concerns\\HasUser' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Concerns/HasUser.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Facades\\FilamentEditProfile' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Facades/FilamentEditProfile.php',
+        'Joaopaulolndev\\FilamentEditProfile\\FilamentEditProfile' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/FilamentEditProfile.php',
+        'Joaopaulolndev\\FilamentEditProfile\\FilamentEditProfilePlugin' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/FilamentEditProfilePlugin.php',
+        'Joaopaulolndev\\FilamentEditProfile\\FilamentEditProfileServiceProvider' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/FilamentEditProfileServiceProvider.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Livewire\\BaseProfileForm' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Livewire/BaseProfileForm.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Livewire\\BrowserSessionsForm' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Livewire/BrowserSessionsForm.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Livewire\\CustomFieldsForm' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Livewire/CustomFieldsForm.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Livewire\\DeleteAccountForm' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Livewire/DeleteAccountForm.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Livewire\\EditPasswordForm' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Livewire/EditPasswordForm.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Livewire\\EditProfileForm' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Livewire/EditProfileForm.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Livewire\\SanctumTokens' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Livewire/SanctumTokens.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Pages\\EditProfilePage' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Pages/EditProfilePage.php',
+        'Joaopaulolndev\\FilamentEditProfile\\Testing\\TestsFilamentEditProfile' => __DIR__ . '/..' . '/joaopaulolndev/filament-edit-profile/src/Testing/TestsFilamentEditProfile.php',
         'Joshembling\\ImageOptimizer\\Components\\BaseFileUpload' => __DIR__ . '/..' . '/joshembling/image-optimizer/src/Components/BaseFileUpload.php',
         'Joshembling\\ImageOptimizer\\Components\\SpatieMediaLibraryFileUpload' => __DIR__ . '/..' . '/joshembling/image-optimizer/src/Components/SpatieMediaLibraryFileUpload.php',
         'Joshembling\\ImageOptimizer\\Facades\\ImageOptimizer' => __DIR__ . '/..' . '/joshembling/image-optimizer/src/Facades/ImageOptimizer.php',
@@ -5857,6 +5917,7 @@ class ComposerStaticInit589cc0f65c3aaa7d4e9024d545bc1974
         'Matrix\\Operators\\Multiplication' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Multiplication.php',
         'Matrix\\Operators\\Operator' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Operator.php',
         'Matrix\\Operators\\Subtraction' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/Operators/Subtraction.php',
+        'Mobile_Detect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/Mobile_Detect.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegrationAssertPostConditions' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditions.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',

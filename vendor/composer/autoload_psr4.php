@@ -95,6 +95,10 @@ return array(
     'Laravel\\Pail\\' => array($vendorDir . '/laravel/pail/src'),
     'Kirschbaum\\PowerJoins\\' => array($vendorDir . '/kirschbaum-development/eloquent-power-joins/src'),
     'Joshembling\\ImageOptimizer\\' => array($vendorDir . '/joshembling/image-optimizer/src'),
+    'Joaopaulolndev\\FilamentEditProfile\\Database\\Factories\\' => array($vendorDir . '/joaopaulolndev/filament-edit-profile/database/factories'),
+    'Joaopaulolndev\\FilamentEditProfile\\' => array($vendorDir . '/joaopaulolndev/filament-edit-profile/src'),
+    'Jenssegers\\Agent\\' => array($vendorDir . '/jenssegers/agent/src'),
+    'Jaybizzle\\CrawlerDetect\\' => array($vendorDir . '/jaybizzle/crawler-detect/src'),
     'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'InfinityXTech\\FilamentWorldMapWidget\\' => array($vendorDir . '/infinityxtech/filament-world-map-widget/src'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections', $vendorDir . '/laravel/framework/src/Illuminate/Conditionable'),
@@ -137,6 +141,7 @@ return array(
     'BladeUI\\Heroicons\\' => array($vendorDir . '/blade-ui-kit/blade-heroicons/src'),
     'BezhanSalleh\\FilamentShield\\Database\\Factories\\' => array($vendorDir . '/bezhansalleh/filament-shield/database/factories'),
     'BezhanSalleh\\FilamentShield\\' => array($vendorDir . '/bezhansalleh/filament-shield/src'),
+    'Awcodes\\LightSwitch\\' => array($vendorDir . '/awcodes/light-switch/src'),
     'App\\' => array($baseDir . '/app', $vendorDir . '/laravel/pint/app'),
     'AnourValar\\EloquentSerialize\\' => array($vendorDir . '/anourvalar/eloquent-serialize/src'),
 );
