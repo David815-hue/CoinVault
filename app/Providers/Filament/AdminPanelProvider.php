@@ -22,6 +22,8 @@ use ShuvroRoy\FilamentSpatieLaravelBackup\FilamentSpatieLaravelBackupPlugin;
 use Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin;
 use Swis\Filament\Backgrounds\ImageProviders\MyImages;
 use Awcodes\LightSwitch\LightSwitchPlugin;
+use App\Filament\Widgets\MapBilletes;
+use App\Filament\Widgets\MapWidget;
 
 
 class AdminPanelProvider extends PanelProvider
@@ -46,6 +48,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
+                MapWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

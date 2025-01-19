@@ -2394,16 +2394,16 @@
         },
         {
             "name": "infinityxtech/filament-world-map-widget",
-            "version": "v1.0.0",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/InfinityXTech/filament-world-map-widget.git",
-                "reference": "a5ac819fe38b88c0db2e31206fc3223f0d302ba1"
+                "reference": "0c3fc6770a8d0f4025229941eacc294e3d337c93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/InfinityXTech/filament-world-map-widget/zipball/a5ac819fe38b88c0db2e31206fc3223f0d302ba1",
-                "reference": "a5ac819fe38b88c0db2e31206fc3223f0d302ba1",
+                "url": "https://api.github.com/repos/InfinityXTech/filament-world-map-widget/zipball/0c3fc6770a8d0f4025229941eacc294e3d337c93",
+                "reference": "0c3fc6770a8d0f4025229941eacc294e3d337c93",
                 "shasum": ""
             },
             "require": {
@@ -2459,7 +2459,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-02T14:23:56+00:00"
+            "time": "2025-01-18T01:10:17+00:00"
         },
         {
             "name": "intervention/image",

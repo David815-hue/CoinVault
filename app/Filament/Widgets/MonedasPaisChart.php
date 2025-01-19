@@ -268,5 +268,9 @@ class MonedasPaisChart extends ChartWidget
             ],
         ];
     }
+    public function height(): string
+    {
+        return '450px'; // Default widget height
+    }
 
 }

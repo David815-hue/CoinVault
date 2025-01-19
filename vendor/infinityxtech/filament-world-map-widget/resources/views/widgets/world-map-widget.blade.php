@@ -1,14 +1,17 @@
 @use('Filament\Support\Facades\FilamentAsset')
 <x-filament-widgets::widget>
-    <div ax-load
+    <div
+        x-ignore
+        ax-load
         ax-load-src="{{ FilamentAsset::getAlpineComponentSrc('filament-world-map-widget', 'InfinityXTech/filament-world-map-widget') }}"
         x-data="initWorldMapWidget({
             stats: JSON.parse('{{ json_encode($this->stats()) }}'),
             tooltipText: '{{ $this->tooltip() }}',
-            map: '{{ $this->map()->value }}',
+            map: '{{ is_string($this->map()) ? $this->map() : $this->map()->value }}',
             color: JSON.parse('{{ json_encode($this->color()) }}'),
             selector: '#map',
             additionalOptions: JSON.parse('{{ json_encode($this->additionalOptions()) }}'),
+            customMapUrl: '{{ $this->customMapUrl() }}'
         })"
         x-init="init()">
         <x-filament::section>
