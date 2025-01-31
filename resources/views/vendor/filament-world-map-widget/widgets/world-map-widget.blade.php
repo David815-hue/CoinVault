@@ -9,7 +9,7 @@
             tooltipText: '{{ $this->tooltip() }}',
             map: '{{ is_string($this->map()) ? $this->map() : $this->map()->value }}',
             color: JSON.parse('{{ json_encode($this->color()) }}'),
-            selector: '#map-{{ $this->id }}', // Selector único
+            selector: '#{{ $this->getMapId() }}',
             additionalOptions: JSON.parse('{{ json_encode($this->additionalOptions()) }}'),
             customMapUrl: '{{ $this->customMapUrl() }}'
         })"
@@ -21,7 +21,7 @@
                 </x-filament::section.heading>
             @endif
             <div wire:ignore>
-                <div id="map-{{ $this->id }}" style="height: {{ $this->height() }}"></div>
+                <div id="{{ $this->getMapId() }}" style="height: {{ $this->height() }}"></div>
             </div>
         </x-filament::section>
     </div>

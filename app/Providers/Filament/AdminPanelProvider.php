@@ -24,7 +24,7 @@ use Swis\Filament\Backgrounds\ImageProviders\MyImages;
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use App\Filament\Widgets\MapBilletes;
 use App\Filament\Widgets\MapWidget;
-
+use App\Filament\Widgets\SecondMapWidget;
 
 class AdminPanelProvider extends PanelProvider
 {

@@ -3,18 +3,23 @@
 namespace App\Filament\Widgets;
 
 use InfinityXTech\FilamentWorldMapWidget\Widgets\WorldMapWidget;
-use App\Models\Monedas;
+use App\Models\Billetes;
 
-class MapWidget extends WorldMapWidget
+
+class BilletesMap extends WorldMapWidget
 {
-    protected static string $id = 'three-map-widget';
     protected static ?int $sort = 2;
-    protected static string $uid = 'monedas-map';
-    protected static ?string $heading = 'Monedas por País';
+    protected static string $uid = 'billetes-map';
+
+    // Sobreescribir el método que genera el ID del contenedor del mapa
+    public function getMapId(): string
+    {
+        return 'map-billetes';
+    }
 
     public function stats(): array
     {
-        $data = Monedas::where('user_id', auth()->id())
+        $data = Billetes::where('user_id', auth()->id())
             ->selectRaw('pais as country_code, COUNT(*) as total')
             ->groupBy('pais')
             ->get();
@@ -22,24 +27,19 @@ class MapWidget extends WorldMapWidget
         return $data->pluck('total', 'country_code')->toArray();
     }
 
-    public function getMapId(): string
-    {
-        return 'map-monedas';
-    }
-
     public function color(): array
     {
-        return [0, 105, 192]; // Un azul distinto para monedas
+        return [76, 175, 80]; // Verde para billetes
     }
  
     public function tooltip(): string
     {
-        return 'Monedas';
+        return 'Billetes';
     }
 
     public function heading(): string
     {
-        return static::$heading;
+        return 'Billetes por País';
     }
 
     public function additionalOptions(): array
@@ -50,7 +50,7 @@ class MapWidget extends WorldMapWidget
                     'fill' => '#e4e4e4',
                 ],
                 'selected' => [
-                    'fill' => '#0069C0' // Un azul distinto para monedas
+                    'fill' => '#4CAF50'
                 ]
             ],
             'focusOn' => [
@@ -58,6 +58,7 @@ class MapWidget extends WorldMapWidget
                 'y' => 0.5,
                 'scale' => 1
             ],
+            'selector' => '#' . $this->getMapId(), // Usar el ID único
             'selectedRegions' => array_keys($this->stats()),
             'zoomAnimate' => true,
             'zoomMax' => 8,

@@ -12,7 +12,7 @@ class BilletesPaisChart extends ChartWidget
 
     protected static ?string $heading = 'Billetes por País';
 
-    protected static ?int $sort = 2;
+    protected static ?int $sort = 3;
 
 
     protected function getType(): string

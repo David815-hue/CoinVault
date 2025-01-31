@@ -6,11 +6,13 @@ use App\Models\Monedas;
 use Filament\Widgets\ChartWidget;
 
 class MonedasPaisChart extends ChartWidget
+
 {
+
     public ?string $filter = 'ALL';  // ALL como valor por defecto para mostrar todos los países
 
-    protected static ?string $heading = 'Monedas por País';
-    protected static ?int $sort = 2;
+    protected static ?string $heading = 'Monedas y Billetes por País';
+    protected static ?int $sort = 3;
 
     protected function getType(): string
     {
