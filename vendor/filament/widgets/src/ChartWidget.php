@@ -28,6 +28,8 @@ abstract class ChartWidget extends Widget
 
     protected static ?string $maxHeight = null;
 
+    protected static bool $collapsible = false;
+
     /**
      * @var array<string, mixed> | null
      */
@@ -87,6 +89,12 @@ abstract class ChartWidget extends Widget
     protected function getMaxHeight(): ?string
     {
         return static::$maxHeight;
+    }
+
+    //Funcion para collapsible
+    public function isCollapsible() : bool
+    {
+        return static::$collapsible;
     }
 
     /**

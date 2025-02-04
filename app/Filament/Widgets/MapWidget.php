@@ -11,6 +11,8 @@ class MapWidget extends WorldMapWidget
     protected static ?int $sort = 2;
     protected static string $uid = 'monedas-map';
     protected static ?string $heading = 'Monedas por País';
+    protected static bool $collapsible = true;
+
 
     public function stats(): array
     {

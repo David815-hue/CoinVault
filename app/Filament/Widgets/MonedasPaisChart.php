@@ -11,8 +11,10 @@ class MonedasPaisChart extends ChartWidget
 
     public ?string $filter = 'ALL';  // ALL como valor por defecto para mostrar todos los países
 
-    protected static ?string $heading = 'Monedas y Billetes por País';
+    protected static ?string $heading = 'Monedas por País';
     protected static ?int $sort = 3;
+    protected static bool $collapsible = true;
+
 
     protected function getType(): string
     {

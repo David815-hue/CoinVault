@@ -5,16 +5,19 @@
     $heading = $this->getHeading();
     $description = $this->getDescription();
     $filters = $this->getFilters();
+    $collapsible = $this->isCollapsible();
 @endphp
 
 <x-filament-widgets::widget class="fi-wi-chart">
-    <x-filament::section :description="$description" :heading="$heading">
+    <x-filament::section :description="$description" :heading="$heading" :collapsible="$collapsible">
         @if ($filters)
             <x-slot name="headerEnd">
                 <x-filament::input.wrapper
                     inline-prefix
                     wire:target="filter"
                     class="w-max sm:-my-2"
+                    x-show="!isCollapsed"
+                    @click.stop=""
                 >
                     <x-filament::input.select
                         inline-prefix

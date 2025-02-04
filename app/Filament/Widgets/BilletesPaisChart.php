@@ -14,6 +14,9 @@ class BilletesPaisChart extends ChartWidget
 
     protected static ?int $sort = 3;
 
+    protected static bool $collapsible = true;
+
+
 
     protected function getType(): string
     {
